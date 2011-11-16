@@ -1,0 +1,6 @@
+2011-11-15 18:05:09 Error: [MissingControllerException] Controller class PostmarkController could not be found.
+#0 /Library/WebServer/Documents/postmark/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2011-11-15 20:05:30 Error: [MissingControllerException] Controller class PostmarkController could not be found.
+#0 /Library/WebServer/Documents/postmark/app/webroot/index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
