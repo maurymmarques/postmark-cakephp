@@ -105,4 +105,4 @@ CakePHP 1.3+
 
 This class does not work for CakePHP 1.3, for this see:
 	
-	https://github.com/danielmcormond/postmark-cakephp
+https://github.com/danielmcormond/postmark-cakephp
