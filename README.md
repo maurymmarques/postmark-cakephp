@@ -36,6 +36,7 @@ Usage
 This class uses CakeEmail, and works virtually the same.
 
 Place the PostmarkTransport.php file in your app/Lib/Network/Email/ folder.
+
 PostmarkTransport.php -> https://github.com/maurymmarques/postmark-cakephp/blob/master/app/Lib/Network/Email/PostmarkTransport.php	
 
 Then, simply send messages like this:
