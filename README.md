@@ -65,6 +65,7 @@ Or use more resources:
 	$email->cc(array('recipient3@domain.com' => 'Recipient3', 'recipient4@domain.com' => 'Recipient4'));
 	$email->bcc(array('recipient5@domain.com' => 'Recipient5', 'recipient6@domain.com' => 'Recipient6'));
 	$email->subject('Test Postmark');
+	$email->addHeaders(array('Tag' => 'my tag'));
 	$email->attachments(array(
 	    'cake.icon.png' => array(
 	        'file' => WWW_ROOT . 'img' . DS . 'cake.icon.png'
