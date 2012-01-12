@@ -38,6 +38,7 @@ class PostmarkTransportTest extends CakeTestCase {
 		$this->email->cc(array('recipient@domain.com' => 'Recipient'));
 		$this->email->bcc(array('recipient@domain.com' => 'Recipient'));
 		$this->email->subject('Test Postmark');
+		$this->email->addHeaders(array('Tag' => 'my tag'));
 		$this->email->attachments(array(
 		    'cake.icon.png' => array(
 		        'file' => WWW_ROOT . 'img' . DS . 'cake.icon.png'

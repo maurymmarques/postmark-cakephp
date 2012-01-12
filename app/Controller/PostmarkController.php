@@ -21,6 +21,7 @@ class PostmarkController extends AppController {
 		$email->from(array('yourpostmark@mail.com' => 'Your Name'));
 		$email->to(array('recipient@domain.com' => 'Recipient'));
 		$email->subject('Test Postmark');
+		$email->addHeaders(array('Tag' => 'my tag'));
 		$email->attachments(array(
 		    'cake.icon.png' => array(
 		        'file' => WWW_ROOT . 'img' . DS . 'cake.icon.png'

@@ -106,6 +106,11 @@ class PostmarkTransport extends AbstractTransport {
 
 		// Subject
 		$message['Subject'] = $this->_headers['Subject'];
+		
+		// Tag
+		if (isset($this->_headers['Tag'])) {
+			$message['Tag'] = $this->_headers['Tag'];
+		}
 
 		// HtmlBody
 		if ($this->_cakeEmail->emailFormat() === 'html' || $this->_cakeEmail->emailFormat() === 'both') {
