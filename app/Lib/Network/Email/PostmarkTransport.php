@@ -86,6 +86,12 @@ class PostmarkTransport extends AbstractTransport {
 	 * @return array
 	 */
 	private function __buildMessage() {
+
+        $eol = PHP_EOL;
+        if (isset($this->_config['eol'])) {
+            $eol = $this->_config['eol'];
+        }
+
 		// Message
 		$message = array();
 
@@ -118,7 +124,7 @@ class PostmarkTransport extends AbstractTransport {
 		}
 
 		// TextBody
-		$message['TextBody'] = implode('', $this->_cakeEmail->message());
+        $message['TextBody'] = implode($eol, $this->_cakeEmail->message());
 
 		// Attachments
 		$message['Attachments'] = $this->__buildAttachments();
