@@ -1,19 +1,16 @@
-Postmark Transport CakePHP
-==========================
+# Postmark Transport CakePHP
 
 Copyright 2011, Maury M. Marques
 Licensed under The MIT License
 Redistributions of files must retain the above copyright notice.
 
 
-Version
--------
+### Version
 
 Written for CakePHP 2.0+
 
 
-Installation
--------------
+### Installation
 
 This repository should be installed in the same way as any other plugin.
 
@@ -35,8 +32,7 @@ CakePlugin::load('Postmark');
 ```
 
 
-Configuration
--------------
+### Configuration
 
 Create the file app/Config/email.php with the class EmailConfig.
 
@@ -53,8 +49,7 @@ If you want your connection to Postmark to be encrypted, simply change the uri t
 Make sure to modified the API key to match the credentials for your Postmark server rack instance.
 
 
-Usage
------
+### Usage
 
 This class uses CakeEmail, and works virtually the same.
 
@@ -111,8 +106,7 @@ For more information, see the Postmark API documentation:
 http://developer.postmarkapp.com/#message-format
 
 
-Debugging
---------
+### Debugging
 
 You can see the response from Postmark in the return value when you send a message:
 
@@ -124,8 +118,7 @@ If there are any errors, they'll be included in the response. See the Postmark A
 http://developer.postmarkapp.com/#api-error-codes
 	
 	
-CakePHP 1.3+
---------
+### CakePHP 1.3+
 
 This class does not work for CakePHP 1.3, for this see:
 	
