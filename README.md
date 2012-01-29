@@ -12,7 +12,7 @@ Written for CakePHP 2.0+
 
 ### Installation
 
-You can clone the plugin into your project:
+You can clone the plugin into your project (or if you want you can use as a [submodule](http://help.github.com/submodules)):
 
 ```
 cd path/to/app/Plugin or /plugins
@@ -48,7 +48,7 @@ Make sure to modified the API key to match the credentials for your Postmark ser
 
 ### Usage
 
-This class uses [CakeEmail](http://book.cakephp.org/2.0/en/core-utility-libraries/email.html#CakeEmail), and works virtually the same.
+This class uses [CakeEmail](http://book.cakephp.org/2.0/en/core-utility-libraries/email.html), and works virtually the same.
 
 Then, simply send messages like this:
 
