@@ -1,4 +1,4 @@
-# Postmark Transport CakePHP
+# Postmark plugin for CakePHP
 
 Copyright 2011, Maury M. Marques
 Licensed under The MIT License
@@ -12,7 +12,7 @@ Written for CakePHP 2.0+
 
 ### Installation
 
-This repository should be installed in the same way as any other plugin.
+You can clone the plugin into your project:
 
 ```
 cd path/to/app/Plugin or /plugins
@@ -36,6 +36,7 @@ CakePlugin::load('Postmark');
 
 Create the file app/Config/email.php with the class EmailConfig.
 
+```php
 	<?php
 	class EmailConfig {
 		public $postmark = array(
@@ -43,6 +44,7 @@ Create the file app/Config/email.php with the class EmailConfig.
 			'key' => 'your-key-postmark'
 		);
 	}
+```
 
 If you want your connection to Postmark to be encrypted, simply change the uri to use https.
 
@@ -53,26 +55,26 @@ Make sure to modified the API key to match the credentials for your Postmark ser
 
 This class uses CakeEmail, and works virtually the same.
 
-Place the [PostmarkTransport.php](https://github.com/maurymmarques/postmark-cakephp/blob/master/app/Lib/Network/Email/PostmarkTransport.php) file in your app/Lib/Network/Email/ folder.	
-
 Then, simply send messages like this:
 
+```php
 	App::uses('CakeEmail', 'Network/Email');
 	$email = new CakeEmail();
 
-	$email->transport('Postmark');
+	$email->transport('Postmark.Postmark');
 	$email->config('postmark');
 	$email->from('yourpostmark@mail.com');
 	$email->to('recipient@domain.com');
 	$email->subject('Test Postmark');
 	$email->send('Message');
+```
 
 Or use more resources:
 
 	App::uses('CakeEmail', 'Network/Email');
 	$email = new CakeEmail();
 
-	$email->transport('Postmark');
+	$email->transport('Postmark.Postmark');
 	$email->config('postmark');
 	$email->template('default', 'default');
 	$email->emailFormat('html');
