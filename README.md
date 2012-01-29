@@ -12,6 +12,29 @@ Version
 Written for CakePHP 2.0+
 
 
+Installation
+-------------
+
+This repository should be installed in the same way as any other plugin.
+
+```
+cd path/to/app/Plugin or /plugins
+git clone git@github.com:maurymmarques/postmark-cakephp.git Postmark
+```
+
+Bootstrap the plugin in app/Config/bootstrap.php:
+
+```php
+<?php
+
+// ...
+
+CakePlugin::load('Postmark');
+
+?>
+```
+
+
 Configuration
 -------------
 
