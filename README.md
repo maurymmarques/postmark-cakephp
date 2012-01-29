@@ -23,10 +23,7 @@ Bootstrap the plugin in app/Config/bootstrap.php:
 
 ```php
 <?php
-// …
-
 CakePlugin::load('Postmark');
-?>
 ```
 
 
@@ -36,8 +33,6 @@ Create the file app/Config/email.php with the class EmailConfig.
 
 ```php
 <?php
-// …
-
 class EmailConfig {
 	public $postmark = array(
 		'uri' => 'http://api.postmarkapp.com/email',
@@ -53,14 +48,12 @@ Make sure to modified the API key to match the credentials for your Postmark ser
 
 ### Usage
 
-This class uses CakeEmail, and works virtually the same.
+This class uses [CakeEmail](http://book.cakephp.org/2.0/en/core-utility-libraries/email.html#CakeEmail), and works virtually the same.
 
 Then, simply send messages like this:
 
 ```php
 <?php
-// …
-
 App::uses('CakeEmail', 'Network/Email');
 $email = new CakeEmail();
 
@@ -76,8 +69,6 @@ Or use more resources:
 
 ```php
 <?php
-// …
-
 App::uses('CakeEmail', 'Network/Email');
 $email = new CakeEmail();
 
@@ -104,8 +95,6 @@ If you need the instance of the class PostmarkTrasport:
 
 ```php
 <?php
-// …
-	
 App::uses('CakeEmail', 'Network/Email');
 $email = new CakeEmail();
 	
@@ -127,10 +116,8 @@ You can see the response from Postmark in the return value when you send a messa
 
 ```php
 <?php
-// …
-
-	$result = $email->send('Message');
-	$this->log($result, 'debug');
+$result = $email->send('Message');
+$this->log($result, 'debug');
 ```
 
 If there are any errors, they'll be included in the response. See the Postmark API documentation for error code detail:
