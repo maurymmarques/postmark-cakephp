@@ -101,7 +101,7 @@ $email = new CakeEmail();
 $postmarkInstance = $email->transport('Postmark.Postmark')->transportClass();
 ```
 
-The syntax of all parameters is the same as the default CakePHP email component:
+The syntax of all parameters is the same as the default CakeEmail:
 
 http://book.cakephp.org/2.0/en/core-utility-libraries/email.html
 
