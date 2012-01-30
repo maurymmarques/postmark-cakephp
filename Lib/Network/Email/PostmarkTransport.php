@@ -112,7 +112,7 @@ class PostmarkTransport extends AbstractTransport {
 
 		// Subject
 		$message['Subject'] = $this->_headers['Subject'];
-		
+
 		// Tag
 		if (isset($this->_headers['Tag'])) {
 			$message['Tag'] = $this->_headers['Tag'];
