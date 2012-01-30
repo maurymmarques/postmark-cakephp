@@ -120,11 +120,13 @@ class PostmarkTransport extends AbstractTransport {
 
 		// HtmlBody
 		if ($this->_cakeEmail->emailFormat() === 'html' || $this->_cakeEmail->emailFormat() === 'both') {
-			$message['HtmlBody'] = $this->_cakeEmail->message($this->_cakeEmail->emailFormat());
+			$message['HtmlBody'] = $this->_cakeEmail->message('html');
 		}
 
 		// TextBody
-		$message['TextBody'] = implode($eol, $this->_cakeEmail->message());
+		if ($this->_cakeEmail->emailFormat() === 'text' || $this->_cakeEmail->emailFormat() === 'both') {
+			$message['TextBody'] = $this->_cakeEmail->message('text');
+		}
 
 		// Attachments
 		$message['Attachments'] = $this->__buildAttachments();
