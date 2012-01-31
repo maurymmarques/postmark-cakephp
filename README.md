@@ -16,7 +16,7 @@ You can clone the plugin into your project (or if you want you can use as a [sub
 
 ```
 cd path/to/app/Plugin or /plugins
-git clone git@github.com:maurymmarques/postmark-cakephp.git Postmark
+git clone https://github.com/maurymmarques/postmark-cakephp.git Postmark
 ```
 
 Bootstrap the plugin in app/Config/bootstrap.php:
