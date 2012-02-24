@@ -97,7 +97,7 @@ If you need the instance of the class PostmarkTrasport:
 <?php
 App::uses('CakeEmail', 'Network/Email');
 $email = new CakeEmail();
-	
+
 $postmarkInstance = $email->transport('Postmark.Postmark')->transportClass();
 ```
 
@@ -123,10 +123,10 @@ $this->log($result, 'debug');
 If there are any errors, they'll be included in the response. See the Postmark API documentation for error code detail:
 
 http://developer.postmarkapp.com/#api-error-codes
-	
-	
+
+
 ### CakePHP 1.3+
 
 This class does not work for CakePHP 1.3, for this see:
-	
+
 https://github.com/danielmcormond/postmark-cakephp
