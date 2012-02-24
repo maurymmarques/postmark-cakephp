@@ -76,6 +76,7 @@ $email->transport('Postmark.Postmark');
 $email->config('postmark');
 $email->template('default', 'default');
 $email->emailFormat('html');
+$email->viewVars(array('name' => 'Your Name'));
 $email->from(array('yourpostmark@mail.com' => 'Your Name'));
 $email->to(array('recipient1@domain.com' => 'Recipient1', 'recipient2@domain.com' => 'Recipient2'));
 $email->cc(array('recipient3@domain.com' => 'Recipient3', 'recipient4@domain.com' => 'Recipient4'));
