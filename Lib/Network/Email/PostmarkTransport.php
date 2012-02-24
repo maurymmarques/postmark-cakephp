@@ -87,11 +87,6 @@ class PostmarkTransport extends AbstractTransport {
 	 */
 	private function __buildMessage() {
 
-		$eol = PHP_EOL;
-		if (isset($this->_config['eol'])) {
-			$eol = $this->_config['eol'];
-		}
-
 		// Message
 		$message = array();
 
