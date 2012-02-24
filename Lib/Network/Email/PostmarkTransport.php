@@ -86,7 +86,6 @@ class PostmarkTransport extends AbstractTransport {
 	 * @return array
 	 */
 	private function __buildMessage() {
-
 		// Message
 		$message = array();
 
