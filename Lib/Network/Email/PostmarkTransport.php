@@ -86,12 +86,6 @@ class PostmarkTransport extends AbstractTransport {
 	 * @return array
 	 */
 	private function __buildMessage() {
-
-		$eol = PHP_EOL;
-		if (isset($this->_config['eol'])) {
-			$eol = $this->_config['eol'];
-		}
-
 		// Message
 		$message = array();
 
@@ -112,7 +106,7 @@ class PostmarkTransport extends AbstractTransport {
 
 		// Subject
 		$message['Subject'] = $this->_headers['Subject'];
-		
+
 		// Tag
 		if (isset($this->_headers['Tag'])) {
 			$message['Tag'] = $this->_headers['Tag'];
@@ -120,11 +114,13 @@ class PostmarkTransport extends AbstractTransport {
 
 		// HtmlBody
 		if ($this->_cakeEmail->emailFormat() === 'html' || $this->_cakeEmail->emailFormat() === 'both') {
-			$message['HtmlBody'] = $this->_cakeEmail->message($this->_cakeEmail->emailFormat());
+			$message['HtmlBody'] = $this->_cakeEmail->message('html');
 		}
 
 		// TextBody
-		$message['TextBody'] = implode($eol, $this->_cakeEmail->message());
+		if ($this->_cakeEmail->emailFormat() === 'text' || $this->_cakeEmail->emailFormat() === 'both') {
+			$message['TextBody'] = $this->_cakeEmail->message('text');
+		}
 
 		// Attachments
 		$message['Attachments'] = $this->__buildAttachments();
