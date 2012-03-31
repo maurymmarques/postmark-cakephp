@@ -48,7 +48,7 @@ Make sure to modified the API key to match the credentials for your Postmark ser
 
 ### Usage
 
-This class uses [CakeEmail](http://book.cakephp.org/2.0/en/core-utility-libraries/email.html), and works virtually the same.
+This plugin uses [CakeEmail](http://book.cakephp.org/2.0/en/core-utility-libraries/email.html), and works virtually the same.
 
 Then, simply send messages like this:
 
