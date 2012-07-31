@@ -25,39 +25,39 @@ App::uses('HttpSocket', 'Network/Http');
  */
 class PostmarkTransport extends AbstractTransport {
 
-	/**
-	 * CakeEmail
-	 *
-	 * @var CakeEmail
-	 */
+/**
+ * CakeEmail
+ *
+ * @var CakeEmail
+ */
 	protected $_cakeEmail;
 
-	/**
-	 * Variable that holds Postmark connection
-	 *
-	 * @var HttpSocket
-	 */
+/**
+ * Variable that holds Postmark connection
+ *
+ * @var HttpSocket
+ */
 	private $__postmarkConnection;
 
-	/**
-	 * CakeEmail headers
-	 *
-	 * @var array
-	 */
+/**
+ * CakeEmail headers
+ *
+ * @var array
+ */
 	protected $_headers;
 
-	/**
-	 * Configuration to transport
-	 *
-	 * @var mixed
-	 */
+/**
+ * Configuration to transport
+ *
+ * @var mixed
+ */
 	protected $_config = array();
 
-	/**
-	 * Sends out email via Postmark
-	 *
-	 * @return array Return the Postmark
-	 */
+/**
+ * Sends out email via Postmark
+ *
+ * @return array Return the Postmark
+ */
 	public function send(CakeEmail $email) {
 		// CakeEmail
 		$this->_cakeEmail = $email;
@@ -77,14 +77,19 @@ class PostmarkTransport extends AbstractTransport {
 		// Send message
 		$returnPostmark = $this->__postmarkConnection->post($this->_config['uri'], json_encode($message), $request);
 
-		return json_decode($returnPostmark, true);
+		// Return data
+		$result = json_decode($returnPostmark, true);
+		$message = $message['HtmlBody'];
+		$headers = $this->_headersToString($this->_headers);
+
+		return array_merge(array('Postmark' => $result), array('headers' => $headers, 'message' => $message));
 	}
 
-	/**
-	 * Build message
-	 *
-	 * @return array
-	 */
+/**
+ * Build message
+ *
+ * @return array
+ */
 	private function __buildMessage() {
 		// Message
 		$message = array();
@@ -128,11 +133,11 @@ class PostmarkTransport extends AbstractTransport {
 		return $message;
 	}
 
-	/**
-	 * Build attachments
-	 *
-	 * @return array
-	 */
+/**
+ * Build attachments
+ *
+ * @return array
+ */
 	private function __buildAttachments() {
 		// Attachments
 		$attachments = array();
@@ -155,11 +160,11 @@ class PostmarkTransport extends AbstractTransport {
 		return $attachments;
 	}
 
-	/**
-	 * Build request
-	 *
-	 * @return array
-	 */
+/**
+ * Build request
+ *
+ * @return array
+ */
 	private function __buildRequest () {
 		$request = array(
 			'header' => array(
