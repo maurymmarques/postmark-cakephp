@@ -79,7 +79,12 @@ class PostmarkTransport extends AbstractTransport {
 
 		// Return data
 		$result = json_decode($returnPostmark, true);
-		$message = $message['HtmlBody'];
+		if($this->_cakeEmail->emailFormat() === 'html') {
+			$message = $message['HtmlBody'];
+		}
+		else{
+			$message = $message['TextBody'];
+		}
 		$headers = $this->_headersToString($this->_headers);
 
 		return array_merge(array('Postmark' => $result), array('headers' => $headers, 'message' => $message));
@@ -110,7 +115,7 @@ class PostmarkTransport extends AbstractTransport {
 		$message['ReplyTo'] = $this->_headers['Reply-To'];
 
 		// Subject
-		$message['Subject'] = $this->_headers['Subject'];
+		$message['Subject'] = mb_decode_mimeheader($this->_headers['Subject']);
 
 		// Tag
 		if (isset($this->_headers['Tag'])) {
