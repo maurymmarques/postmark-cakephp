@@ -29,7 +29,6 @@ class PostmarkTransportTest extends CakeTestCase {
  * @return void
  */
 	public function testPostmarkSend() {
-		$this->email->transport('Postmark.Postmark');
 		$this->email->config('postmark');
 		$this->email->template('default', 'default');
 		$this->email->emailFormat('html');

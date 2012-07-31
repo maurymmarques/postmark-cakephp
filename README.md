@@ -35,6 +35,7 @@ Create the file app/Config/email.php with the class EmailConfig.
 <?php
 class EmailConfig {
 	public $postmark = array(
+		'transport' => 'Postmark.Postmark',
 		'uri' => 'http://api.postmarkapp.com/email',
 		'key' => 'your-key-postmark'
 	);
@@ -57,7 +58,6 @@ Then, simply send messages like this:
 App::uses('CakeEmail', 'Network/Email');
 $email = new CakeEmail();
 
-$email->transport('Postmark.Postmark');
 $email->config('postmark');
 $email->from('yourpostmark@mail.com');
 $email->to('recipient@domain.com');
@@ -72,7 +72,6 @@ Or use more resources:
 App::uses('CakeEmail', 'Network/Email');
 $email = new CakeEmail();
 
-$email->transport('Postmark.Postmark');
 $email->config('postmark');
 $email->template('default', 'default');
 $email->emailFormat('html');
