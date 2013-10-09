@@ -1,6 +1,6 @@
 # Postmark plugin for CakePHP
 
-CakePHP plugin that makes mail delivery using [Postmark](https://postmarkapp.com)
+CakePHP plugin that makes email delivery using [Postmark](https://postmarkapp.com)
 
 ### Version
 
