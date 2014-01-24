@@ -34,7 +34,7 @@ class EmailConfig {
 	public $postmark = array(
 		'transport' => 'Postmark.Postmark',
 		'uri' => 'http://api.postmarkapp.com/email',
-		'key' => 'your-key-postmark'
+		'key' => 'your-postmark-key'
 	);
 }
 ```
