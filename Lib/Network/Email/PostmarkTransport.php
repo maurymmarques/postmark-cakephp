@@ -111,7 +111,9 @@ class PostmarkTransport extends AbstractTransport {
 		$message['Bcc'] = $this->_headers['Bcc'];
 
 		// ReplyTo
-		$message['ReplyTo'] = $this->_headers['Reply-To'];
+		if ($this->_headers['Reply-To'] !== false) {
+			$message['ReplyTo'] = $this->_headers['Reply-To'];
+		}
 
 		// Subject
 		$message['Subject'] = mb_decode_mimeheader($this->_headers['Subject']);
@@ -153,16 +155,13 @@ class PostmarkTransport extends AbstractTransport {
 				$data = fread($handle, filesize($fileInfo['file']));
 				$data = chunk_split(base64_encode($data)) ;
 				fclose($handle);
-
-				$attachments[$i]['Name'] = $fileName;
 				$attachments[$i]['Content'] = $data;
-				$attachments[$i]['ContentType'] = $fileInfo['mimetype'];
 			} elseif (isset($fileInfo['data'])) {
-				$attachments[$i]['Name'] = $fileName;
 				$attachments[$i]['Content'] = $fileInfo['data'];
-				$attachments[$i]['ContentType'] = $fileInfo['mimetype'];				
 			}
-
+			$attachments[$i]['Name'] = $fileName;
+			$attachments[$i]['ContentType'] = $fileInfo['mimetype'];
+			$attachments[$i]['ContentId'] = $fileInfo['contentId'];
 			$i++;
 		}
 
