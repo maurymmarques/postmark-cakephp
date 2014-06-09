@@ -148,15 +148,20 @@ class PostmarkTransport extends AbstractTransport {
 
 		$i = 0;
 		foreach ($this->_cakeEmail->attachments() as $fileName => $fileInfo) {
+			if (isset($fileInfo['file'])) {
+				$handle = fopen($fileInfo['file'], 'rb');
+				$data = fread($handle, filesize($fileInfo['file']));
+				$data = chunk_split(base64_encode($data)) ;
+				fclose($handle);
 
-			$handle = fopen($fileInfo['file'], 'rb');
-			$data = fread($handle, filesize($fileInfo['file']));
-			$data = chunk_split(base64_encode($data)) ;
-			fclose($handle);
-
-			$attachments[$i]['Name'] = $fileName;
-			$attachments[$i]['Content'] = $data;
-			$attachments[$i]['ContentType'] = $fileInfo['mimetype'];
+				$attachments[$i]['Name'] = $fileName;
+				$attachments[$i]['Content'] = $data;
+				$attachments[$i]['ContentType'] = $fileInfo['mimetype'];
+			} elseif (isset($fileInfo['data'])) {
+				$attachments[$i]['Name'] = $fileName;
+				$attachments[$i]['Content'] = $fileInfo['data'];
+				$attachments[$i]['ContentType'] = $fileInfo['mimetype'];				
+			}
 
 			$i++;
 		}
