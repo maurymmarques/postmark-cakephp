@@ -98,6 +98,10 @@ class PostmarkTransport extends AbstractTransport {
 		// Message
 		$message = array();
 
+		if (isset($this->_config['TrackOpens'])) {
+			$message['TrackOpens'] = $this->_config['TrackOpens'];
+		}
+
 		// From
 		$message['From'] = $this->_headers['From'];
 
