@@ -98,8 +98,8 @@ class PostmarkTransport extends AbstractTransport {
 		// Message
 		$message = array();
 
-		if (isset($this->_config['TrackOpens'])) {
-			$message['TrackOpens'] = $this->_config['TrackOpens'];
+		if (isset($this->_config['track_opens'])) {
+			$message['TrackOpens'] = $this->_config['track_opens'];
 		}
 
 		// From
