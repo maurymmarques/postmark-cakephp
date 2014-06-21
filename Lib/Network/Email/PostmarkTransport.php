@@ -165,7 +165,9 @@ class PostmarkTransport extends AbstractTransport {
 			}
 			$attachments[$i]['Name'] = $fileName;
 			$attachments[$i]['ContentType'] = $fileInfo['mimetype'];
-			$attachments[$i]['ContentId'] = $fileInfo['contentId'];
+			if (isset($fileInfo['contentId'])) {
+				$attachments[$i]['ContentId'] = $fileInfo['contentId'];
+			}
 			$i++;
 		}
 
