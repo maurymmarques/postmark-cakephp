@@ -42,7 +42,7 @@ class EmailConfig {
 
 If you want your connection to Postmark to be encrypted, simply change the uri to use `https`.
 
-You can set [track_opens](http://developer.postmarkapp.com/developer-build.html#open-tracking) to `false` or remove it from the config array if you don't want Postmark to track the emails.
+You can set [track_opens](http://developer.postmarkapp.com/developer-build.html#open-tracking) to `false` or remove it from the config array if you don't want Postmark to track emails.
 Read more about [open tracking](http://blog.postmarkapp.com/post/87919491263/open-tracking-is-finally-here)
 
 Note: Make sure to modified the API key to match the credentials for your Postmark server rack instance.
