@@ -22,6 +22,11 @@ Add the plugin to your project's `composer.json` - something like this:
 {
   "require": {
     "maurymmarques/postmark-plugin": "dev-master"
+  },
+  "extra": {
+    "installer-paths": {
+      "app/Plugin/Postmark": ["maurymmarques/postmark-plugin"]
+    }
   }
 }
 ```
