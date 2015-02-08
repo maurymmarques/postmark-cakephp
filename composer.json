@@ -1,5 +1,5 @@
 {
-    "name": "maurymmarques/postmark-cakephp",
+    "name": "maurymmarques/postmark-plugin",
     "description": "A CakePHP plugin that makes email delivery using Postmark",
     "type": "cakephp-plugin",
     "keywords": ["cakephp", "postmark", "plugin"],
