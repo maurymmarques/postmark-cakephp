@@ -1,12 +1,25 @@
 {
     "name": "maurymmarques/postmark-cakephp",
-	"license": "MIT",
+    "description": "A CakePHP plugin that makes email delivery using Postmark",
     "type": "cakephp-plugin",
-	"version": "1.0.0",
+    "keywords": ["cakephp", "postmark", "plugin"],
+    "homepage": "https://github.com/maurymmarques/postmark-cakephp",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maury M. Marques",
+            "role": "Author"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/maurymmarques/postmark-cakephp/issues",
+        "source": "https://github.com/maurymmarques/postmark-cakephp"
+    },
     "require": {
+        "php": ">=5.3.0",
         "composer/installers": "*"
     },
- 	"extra": {
+    "extra": {
         "installer-name": "Postmark"
     }
 }
