@@ -68,6 +68,9 @@ class PostmarkTransport extends AbstractTransport {
 		// Setup connection
 		$this->__postmarkConnection = & new HttpSocket();
 
+		// Configure transport
+		$this->__configure();
+
 		// Build message
 		$message = $this->__buildMessage();
 
@@ -87,6 +90,23 @@ class PostmarkTransport extends AbstractTransport {
 		}
 
 		return array_merge(array('Postmark' => $result), array('headers' => $headers, 'message' => $message));
+	}
+
+/**
+ * Configure transport. Currently only proxy setting is supported.
+ */
+	private function __configure() {
+		// Host is mandatory part of a proxy configuration
+		if (isset($this->_config['proxy']['host']) && !empty($this->_config['proxy']['host'])) {
+			$default = array(
+				'port' => 3128,
+				'method' => null,
+				'user' => null,
+				'pass' => null
+			);
+			$params = array_merge($default, $this->_config['proxy']);
+			$this->__postmarkConnection->configProxy($params['host'], $params['port'], $params['method'], $params['user'], $params['pass']);
+		}
 	}
 
 /**

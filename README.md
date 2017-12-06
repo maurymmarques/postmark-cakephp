@@ -61,13 +61,13 @@ _[Manual]_
 
 ## Configuration
 
-Bootstrap the plugin in app/Config/bootstrap.php:
+Bootstrap the plugin in `app/Config/bootstrap.php`:
 
 ```php
 CakePlugin::load('Postmark');
 ```
 
-Create the file app/Config/email.php with the class EmailConfig.
+Create the file `app/Config/email.php` with the class EmailConfig.
 
 ```php
 class EmailConfig {
@@ -87,6 +87,29 @@ Read more about [Open Tracking](http://blog.postmarkapp.com/post/87919491263/ope
 
 Note: Make sure to modified the API key to match the credentials for your Postmark server rack instance.
 
+## Proxy
+
+You can also configure a proxy in the file `app/Config/email.php`:
+
+```php
+class EmailConfig {
+  public $postmark = array(
+    'transport' => 'Postmark.Postmark',
+    'uri' => 'http://api.postmarkapp.com/email',
+    'key' => 'your-postmark-key',
+    'track_opens' => true,
+    'proxy' => array(
+      'host' => 'your-proxy-host', # Can be an array with settings to authentication class
+      'port' => 3128, # Default 3128
+      'method' => null, # Proxy method (ie, Basic, Digest). If empty, disable proxy authentication
+      'user' => null, # Username if your proxy need authentication
+      'pass' => null # Password to proxy authentication
+    ),
+  );
+}
+```
+
+Read more about [HttpSocket Parameters](https://api.cakephp.org/2.10/class-HttpSocket.html#_configProxy).
 
 ## Usage
 
