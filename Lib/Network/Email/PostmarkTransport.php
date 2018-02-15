@@ -66,7 +66,7 @@ class PostmarkTransport extends AbstractTransport {
 		$this->_headers = $this->_cakeEmail->getHeaders(array('from', 'to', 'cc', 'bcc', 'replyTo', 'subject'));
 
 		// Setup connection
-		$this->__postmarkConnection = & new HttpSocket();
+		$this->__postmarkConnection = new HttpSocket();
 
 		// Configure transport
 		$this->__configure();
